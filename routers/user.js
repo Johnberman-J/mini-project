@@ -24,16 +24,18 @@ router.post("/register", async (req, res, next) => {
         return;
     }
     // id 중복 확인
-    if (existingUser !== null) {
+    if (existingUser !== null || existingName !== null) {
         res.status(400).send({
-            errorMessage: "아이디 중복",
+            errorMessage: "아이디 또는 닉네임 중복",
         });
         return;
     }
-    // 닉네임 중복확인
-    if (existingName !== null) {
-        res.status(400).send({
-            errorMessage: "닉네임 중복",
+    // 닉네임 공란 확인
+    let check_nick = nickname.split(" ");
+
+    if (check_nick[0] === "") {
+        res.status(412).send({
+            errorMessage: "공란은 입력할 수 없습니다.",
         });
         return;
     }
@@ -86,14 +88,17 @@ router.post("/login", async (req, res) => {
     }
     console.log(user);
 
-    const token = jwt.sign({ userId: user.userId }, process.env.SECRET_KEY);
+    const token = jwt.sign(
+        { nickname: user.nickname },
+        process.env.SECRET_KEY,
+        { expiresIn: "1h" }
+    );
 
     res.send({
         token: token,
         nickname: user.nickname,
     });
+    console.log("token 발급 완료");
 });
-
-//미들웨어 붙여서 로그인한 유저 블락
 
 module.exports = router;

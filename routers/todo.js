@@ -3,9 +3,10 @@ const Todos = require("../models/todos");
 const circles = require("../models/circles");
 const dateMiddleware = require("../middlewares/date-compare");
 const router = express.Router();
+const auth = require("../middlewares/auth");
 
 //투두리스트 조회 API
-router.get("/todos", async (req, res) => {
+router.get("/todos", auth, async (req, res) => {
     const { circles_id } = req.query;
     const circle_detail = await Todos.find({ circles_id: circles_id });
 
@@ -14,7 +15,7 @@ router.get("/todos", async (req, res) => {
 
 //투두리스트 추가 API
 //todos에 프로젝트 아이디 컬럼 추가
-router.post("/todos", dateMiddleware, async (req, res) => {
+router.post("/todos", auth, dateMiddleware, async (req, res) => {
     const { todos_id, todo_content, circles_id } = req.body;
     const todo_check = false;
     const circles_detail = await circles.findOne({ circles_id: circles_id });
@@ -34,7 +35,7 @@ router.post("/todos", dateMiddleware, async (req, res) => {
 });
 
 //투두리스트 수정 API
-router.put("/todos/:todos_id", dateMiddleware, async (req, res) => {
+router.put("/todos/:todos_id", auth, dateMiddleware, async (req, res) => {
     const { todos_id } = req.params;
     const { todo_content, circles_id } = req.body;
     console.log("여기를 지나감");
@@ -56,7 +57,7 @@ router.put("/todos/:todos_id", dateMiddleware, async (req, res) => {
 });
 
 //투두리스트 식제 API
-router.delete("/todos/:todos_id", dateMiddleware, async (req, res) => {
+router.delete("/todos/:todos_id", auth, dateMiddleware, async (req, res) => {
     const { todos_id } = req.params;
     const { circles_id } = req.body;
 
@@ -68,7 +69,7 @@ router.delete("/todos/:todos_id", dateMiddleware, async (req, res) => {
 });
 
 //투두리스트 체크박스 수정 API
-router.patch("/todos/:todos_id", async (req, res) => {
+router.patch("/todos/:todos_id", auth, async (req, res) => {
     const { todos_id } = req.params;
     const { todo_check, circles_id } = req.body;
 
