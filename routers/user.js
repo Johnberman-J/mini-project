@@ -4,6 +4,7 @@ const User = require("../models/users");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
+
 require("dotenv").config();
 
 router.post("/register", async (req, res, next) => {
@@ -89,7 +90,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ userId: user.userId }
                             , process.env.SECRET_KEY
                             , {expiresIn: '1h'});
-
+    res.write
     res.send({
         token: token,
         nickname: user.nickname,
