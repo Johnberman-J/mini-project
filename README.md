@@ -1,7 +1,7 @@
 
   # ☑ Todo 99 
 
-99일 단위의 프로젝트 생성, todo list를 관리할 수 있습니다.
+99일 단위로 프로젝트를 생성, todo list를 관리할 수 있습니다.
 
 링크
 ([todo99](http://test-go99.s3-website.ap-northeast-2.amazonaws.com))
