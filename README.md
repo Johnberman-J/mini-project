@@ -88,9 +88,7 @@
  - 김희경
 <details markdown="1">
 <br>
-<summary>회고</summary>
-   본문 수정 또는 블로그 링크
-</details>
+<summary>회고 : https://upsanddowns.tistory.com/35 </summary> 
 <br/>
 <br/>
 
