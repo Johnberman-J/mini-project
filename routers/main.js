@@ -3,7 +3,7 @@ const router = express.Router();
 const circle = require("../models/circles");
 const auth = require("../middlewares/auth");
 
-router.get("/projects/:projects_Id/circles", auth, async (req, res, next) => {
+router.get("/projects/:projects_Id/circles", async (req, res, next) => {
     console.log("circles get api 들어옴");
     const projects_id = req.params.projects_Id;
 

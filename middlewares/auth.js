@@ -7,18 +7,18 @@ module.exports = async (req, res, next) => {
     // next();
     //jwt secretkey 변경
     console.log("auth 미들웨어 왔음");
-    const token = await req.headers["authorization"];
-    console.log(token);
-    const [type, encodedToken] = token.split(" ");
-
-    if (type !== "Bearer") {
-        res.status(401).send({
-            errorMessage: "로그인 후 사용하세요.",
-        });
-        return;
-    }
 
     try {
+        const token = await req.headers["authorization"];
+        console.log(token);
+        const [type, encodedToken] = token.split(" ");
+
+        if (type !== "Bearer") {
+            res.status(401).send({
+                errorMessage: "로그인 후 사용하세요.",
+            });
+            return;
+        }
         const nickname = JWT.verify(encodedToken, process.env.SECRET_KEY);
         res.locals = nickname;
         next();

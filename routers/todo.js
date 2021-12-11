@@ -6,7 +6,7 @@ const router = express.Router();
 const auth = require("../middlewares/auth");
 
 //투두리스트 조회 API
-router.get("/todos", auth, async (req, res) => {
+router.get("/todos", async (req, res) => {
     const { circles_id } = req.query;
     const circle_detail = await Todos.find({ circles_id: circles_id });
 

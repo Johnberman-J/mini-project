@@ -4,7 +4,7 @@ const circles = require("../models/circles");
 const auth = require("../middlewares/auth");
 
 router
-    .route("/circles/:circles_id/feedback", auth)
+    .route("/circles/:circles_id/feedback")
     .get(async (req, res) => {
         const { circles_id } = req.params; // circles_id => unique;
 
@@ -100,7 +100,7 @@ router
     });
 
 // 인증 api
-router.get("/users/me", auth, async (req, res) => {
+router.get("/users/me", async (req, res) => {
     const nickname = res.locals;
     res.send(nickname);
 });

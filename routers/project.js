@@ -9,7 +9,7 @@ const auth = require("../middlewares/auth");
 
 // const circles = require("../models/circles");
 
-router.post("/projects", auth, async (req, res) => {
+router.post("/projects", async (req, res) => {
     const { userId } = req.body;
     const { project_title } = req.body;
     let newProject = 1;
@@ -72,7 +72,7 @@ router.post("/projects", auth, async (req, res) => {
     res.send(result);
 });
 
-router.get("/projects", auth, async (req, res, next) => {
+router.get("/projects", async (req, res, next) => {
     const { userId } = req.query;
     try {
         const projects = await Project.find({ userId: userId }).sort(
@@ -86,7 +86,7 @@ router.get("/projects", auth, async (req, res, next) => {
     }
 });
 
-router.delete("/projects/:projects_id", auth, async (req, res, next) => {
+router.delete("/projects/:projects_id", async (req, res, next) => {
     const { projects_id } = req.params;
     const { userId } = req.body;
 
@@ -99,7 +99,7 @@ router.delete("/projects/:projects_id", auth, async (req, res, next) => {
     res.send(result);
 });
 
-router.put("/projects/:projects_id", auth, async (req, res, next) => {
+router.put("/projects/:projects_id", async (req, res, next) => {
     const { projects_id } = req.params;
     const { userId, project_title } = req.body;
 
