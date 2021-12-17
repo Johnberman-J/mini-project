@@ -25,9 +25,9 @@
 <br/>
 <br/>
 
-## 🎨 프로젝트 초안
+## 🎨 구동 이미지
 
-![디자인](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/908f40ad-09ba-4ad7-869a-bc61adb708da/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211211%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211211T033736Z&X-Amz-Expires=86400&X-Amz-Signature=c40efacfd5c5e19193a9538bde3edffbcd55e970caa50dc02978317a7dd1875d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![디자인](https://github.com/jeongyeon9254/mini_projects/blob/master/img/%EA%B5%AC%EB%8F%99%ED%99%94%EB%A9%B4.png)
 <br/>
 <br/>
 
@@ -43,8 +43,6 @@
 
 - `Frontend`
    - React
-   -
-   -
 <br/>
 <br/>
 
@@ -60,16 +58,8 @@
   - 미들웨어를 이용, 지나간 일자의 투두리스트는 수정이 불가합니다.
   - 투두리스트 체크는 당일 날짜의 리스트만 가능합니다.
   - 완성한 todo list 개수를 db에 저장, 메인 화면에서 시각효과를 주었습니다.(메인 페이지 색상변화)    
-   
-+ **추가 **   
-  - 본문추가
-  - 본문추가
 
-+ **추가 **   
-  - 본문추가
-  - 본문추가
-
-+ **트러블슈팅 **   
++ 트러블슈팅 
 <details markdown ="1">
   <summary>new Date()객체 관련 문제</summary><br/>
 로컬의 node에서 new Date()로 시간객체 생성 후 getMonth, getDate등으로 값을 받아오면 한국 시간 기준으로 생성이 된다.<br/>그러나, EC2의 node에서 동일하게 실행을 하면 UTC 기준으로 생성이 되어 한국 시간과 차이가 생겨 동작에 문제가 생겼다.<br/>원인은 EC2 서버의 Timezone이 UTC로 설정되어 있기 때문이다.
