@@ -21,7 +21,7 @@
 
 ## 🎬 시연영상
 
-[todo99 시연영상]()
+[todo99 시연영상](https://www.youtube.com/watch?v=E97PTRgSM-k)
 <br/>
 <br/>
 
