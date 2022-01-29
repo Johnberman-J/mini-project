@@ -27,7 +27,7 @@
 
 ## 🎨 구동 이미지
 
-![디자인](https://github.com/jeongyeon9254/mini_projects/blob/master/img/%EA%B5%AC%EB%8F%99%ED%99%94%EB%A9%B4.png)
+![디자인](https://github.com/kongom2/mini_projects/raw/master/img/%EA%B5%AC%EB%8F%99%ED%99%94%EB%A9%B4.png)
 <br/>
 <br/>
 
